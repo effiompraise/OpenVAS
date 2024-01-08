@@ -28,6 +28,41 @@ To ready the Windows 10 machine, the firewall was turned off, and obsolete editi
 
 ![Vulnerability Management / OpenVAS](https://imgur.com/9fOti4b.jpg)
 
+### The process of setting up OpenVAS for an unauthenticated scan involved completing the following steps:
+
+   1. A new host was established utilizing the private IP Address of the Windows 10 virtual machine.
+
+![Vulnerability Management / OpenVAS](https://imgur.com/ZY2wcT1.jpg)
+
+   2. A new target was created by using the host from the preceding stage. All remaining settings were maintained 
+      at their default values, and no credentials were provided to OpenVAS
+
+![Vulnerability Management / OpenVAS](https://imgur.com/YzK0geS.jpg)
+
+   3. A new task was created using the target specified in the preceding step. Once more, all remaining 
+      configurations were maintained at their default settings for this scan.
+
+![Vulnerability Management / OpenVAS](https://imgur.com/ID0F05y.jpg)
+
+## Findings from the Unauthenticated Scan
+
+![Vulnerability Management / OpenVAS](https://imgur.com/bRCMecr.jpg)
+![Vulnerability Management / OpenVAS](https://imgur.com/jKfzPZh.jpg)
+
+## Prepared Windows 10 to undergo a Credentialed Scan
+
+Several adjustments were necessary to prepare the Windows 10 machine for a credentialed scan. Initially, it was essential to confirm that the Domain, Private, and Public profiles in the Windows Firewall remained disabled, as per the initial configuration.
+
+Subsequently, the subsequent actions were undertaken:
+
+   1. Disabled User Account Control
+![Vulnerability Management / OpenVAS](https://imgur.com/xKgGmAh.jpg)
+   2. Enabled Remote Registry
+![Vulnerability Management / OpenVAS](https://imgur.com/D84DEjx.jpg)
+   3. Navigate to the Windows Registry and create a new DWORD named “LocalAccountTokenFilterPolicy” and set the 
+      value to “1”
+![Vulnerability Management / OpenVAS](https://imgur.com/N80wQHk.jpg)
+
 
 
 
