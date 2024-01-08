@@ -59,13 +59,51 @@ Subsequently, the subsequent actions were undertaken:
 ![Vulnerability Management / OpenVAS](https://imgur.com/xKgGmAh.jpg)
    2. Enabled Remote Registry
 ![Vulnerability Management / OpenVAS](https://imgur.com/D84DEjx.jpg)
-   3. Navigate to the Windows Registry and create a new DWORD named “LocalAccountTokenFilterPolicy” and set the 
+   3. Navigated to the Windows Registry and created a new DWORD named “LocalAccountTokenFilterPolicy” and set the 
       value to “1”
 ![Vulnerability Management / OpenVAS](https://imgur.com/N80wQHk.jpg)
 
+## Set up OpenVAS to Perform a Credentialed Scan
 
+As the Windows 10 machine rebooted, the subsequent actions were taken to set up OpenVAS for a credentialed scan:
 
+   1. Generated a new credential by supplying the username and password of the Windows 10 virtual machine to OpenVAS
+![Vulnerability Management / OpenVAS](https://imgur.com/kO4tHWF.jpg)
+   2. Duplicated the current target by selecting the sheep icon located in the "Actions" section. Modified the 
+      duplicated target by activating SMB and choosing the credentials generated in the earlier stage.
+![Vulnerability Management / OpenVAS](https://imgur.com/p4DzaXC.jpg)
+![Vulnerability Management / OpenVAS](https://imgur.com/fXZrcf9.jpg)
+   3. Duplicated the current task and modified the duplicate to utilize the authenticated target generated in the 
+      preceding stage.
+![Vulnerability Management / OpenVAS](https://imgur.com/RBOEWfJ.jpg)
 
+## Outcome of Credentialed Scan
+
+The contrast in vulnerabilities uncovered between the unauthenticated and credentialed scans is striking. Not only did the severity rating escalate from 5.0 (medium) to 10.0 (high), but the credentialed scan revealed an additional 107 vulnerabilities.
+
+The credentialed scan enabled OpenVAS to comprehensively assess the system, identifying vulnerabilities within the outdated software. OpenVAS offers a dedicated tab for Common Vulnerabilities and Exposures (CVEs), providing a user-friendly breakdown of each vulnerability. This breakdown encompasses a description, score, vector, references, and remedial actions.
+
+![Vulnerability Management / OpenVAS](https://imgur.com/StaNNul.jpg)
+![Vulnerability Management / OpenVAS](https://imgur.com/e2KSPtV.jpg)
+![Vulnerability Management / OpenVAS](https://imgur.com/LFs1KUi.jpg)
+![Vulnerability Management / OpenVAS](https://imgur.com/xjBjwep.jpg)
+
+## Remediation, Verification Scan, and Conclusion
+
+To address most of the vulnerabilities detected during the credentialed scan, the outdated software on the Windows 10 machine was removed. A subsequent credentialed scan was conducted to confirm that the implemented fixes effectively resolved the anticipated vulnerabilities.
+
+The scan results indicated successful remediation efforts, displaying a decrease in vulnerabilities. Eliminating the outdated software led to a 91% reduction in vulnerabilities identified by OpenVAS.
+
+![Vulnerability Management / OpenVAS](https://imgur.com/ug0PCtI.jpg)
+![Vulnerability Management / OpenVAS](https://imgur.com/6iyQEUG.jpg)
+![Vulnerability Management / OpenVAS](https://imgur.com/QdJuK5b.jpg)
+![Vulnerability Management / OpenVAS](https://imgur.com/vc44mei.jpg)
+
+<p>This project effectively showcased the setup of OpenVAS and the subsequent resolution of vulnerabilities. It underscored the significance of performing credentialed scans whenever feasible, highlighting that an unauthenticated scan doesn't provide an accurate picture of a system's security. Although some high severity vulnerabilities persisted in the credentialed scan, addressing these was beyond the project's scope.</p>
+
+## Reflection
+
+The purpose of this project was to provide me with practical exposure to vulnerability management, covering configurations and remedial actions. Moving forward, I aim to revisit this project, emphasizing advanced vulnerability remediation in my future endeavors.
 
 
 
